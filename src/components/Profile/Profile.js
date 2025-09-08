@@ -1,43 +1,34 @@
-import PropTypes from "prop-types";
-
-import css from "./Profile.module.css";
+import {
+  ProfileCard,
+  ProfileInfo,
+  ProfileStatsList,
+  ProfileStatsListItem,
+} from "./Profile.styled";
 
 export default function Profile(props) {
   return (
-    <div className={css.profile} key={props.tag}>
-      <div className={css.profileInfo}>
+    <ProfileCard ProfileCard key={props.tag}>
+      <ProfileInfo>
         <img src={props.image} alt="User avatar" />
         <p>{props.name}</p>
         <p>@{props.tag}</p>
         <p>{props.location}</p>
-      </div>
+      </ProfileInfo>
 
-      <ul className={css.profileStatsList}>
-        <li className={css.profileStatsListItem}>
+      <ProfileStatsList>
+        <ProfileStatsListItem>
           <span>Followers</span>
           <span>{props.stats.followers}</span>
-        </li>
-        <li className={css.profileStatsListItem}>
+        </ProfileStatsListItem>
+        <ProfileStatsListItem>
           <span>Views</span>
           <span>{props.stats.views}</span>
-        </li>
-        <li className={css.profileStatsListItem}>
+        </ProfileStatsListItem>
+        <ProfileStatsListItem>
           <span>Likes</span>
           <span>{props.stats.likes}</span>
-        </li>
-      </ul>
-    </div>
+        </ProfileStatsListItem>
+      </ProfileStatsList>
+    </ProfileCard>
   );
 }
-
-Profile.propTypes = {
-  name: PropTypes.string,
-  tag: PropTypes.string,
-  location: PropTypes.string,
-  image: PropTypes.string,
-  stats: PropTypes.shape({
-    followers: PropTypes.number,
-    views: PropTypes.number,
-    likes: PropTypes.number,
-  }),
-};
