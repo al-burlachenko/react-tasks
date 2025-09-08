@@ -1,4 +1,6 @@
-import css from "../css/Profile.module.css";
+import PropTypes from "prop-types";
+
+import css from "./Profile.module.css";
 
 export default function Profile(props) {
   return (
@@ -27,3 +29,15 @@ export default function Profile(props) {
     </div>
   );
 }
+
+Profile.propTypes = {
+  name: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
+  image: PropTypes.string,
+  stats: PropTypes.shape({
+    followers: PropTypes.number,
+    views: PropTypes.number,
+    likes: PropTypes.number,
+  }),
+};
